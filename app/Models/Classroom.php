@@ -6,6 +6,7 @@ use App\Models\AgeGroup;
 use App\Models\Nursery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Classroom extends Model
 {
@@ -21,5 +22,10 @@ class Classroom extends Model
     public function ageGroup(): BelongsTo
     {
         return $this->belongsTo(AgeGroup::class);
+    }
+
+    public function teacher(): HasOne
+    {
+        return $this->hasOne(Teacher::class);
     }
 }

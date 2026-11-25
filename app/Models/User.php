@@ -38,7 +38,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Nursery::class, 'owner_id');
     }
-    
+
+    public function teacher(): HasOne
+    {
+        return $this->hasOne(Teacher::class);
+    }
+
     public function getAuthPassword()
     {
         return $this->password_hash;
