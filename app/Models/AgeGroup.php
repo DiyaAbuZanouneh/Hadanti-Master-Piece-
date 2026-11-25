@@ -15,4 +15,5 @@ class AgeGroup extends Model
             'is_active' => 'boolean',
         ];
     }
+    
 }
