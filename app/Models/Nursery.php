@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Classroom;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Nursery extends Model
 {
@@ -36,6 +38,11 @@ class Nursery extends Model
     public function reviewer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'reviewed_by');
+    }
+
+    public function classrooms(): HasMany
+    {
+        return $this->hasMany(Classroom::class);
     }
 
 }
