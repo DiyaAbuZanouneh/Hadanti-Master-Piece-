@@ -47,4 +47,9 @@ class Teacher extends Model
     {
         return $this->hasMany(ClassDailyReport::class);
     }
+
+    public function reportExceptions(): HasMany
+    {
+        return $this->hasMany(ChildReportException::class);
+    }
 }

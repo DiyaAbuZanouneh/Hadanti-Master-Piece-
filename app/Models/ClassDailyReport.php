@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\ChildReportException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ClassDailyReport extends Model
 {
@@ -28,4 +30,10 @@ class ClassDailyReport extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function exceptions(): HasMany
+    {
+        return $this->hasMany(ChildReportException::class, 'report_id');
+    }
+
 }

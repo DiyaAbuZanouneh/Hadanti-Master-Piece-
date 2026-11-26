@@ -33,4 +33,9 @@ class Child extends Model
     {
         return $this->hasMany(Attendance::class);
     }
+
+    public function reportExceptions(): HasMany
+    {
+        return $this->hasMany(ChildReportException::class);
+    }
 }
