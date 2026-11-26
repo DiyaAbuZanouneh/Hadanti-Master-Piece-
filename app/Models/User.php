@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class, 'parent_id');
     }
+
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

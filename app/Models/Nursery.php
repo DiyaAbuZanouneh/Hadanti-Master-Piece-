@@ -58,4 +58,9 @@ class Nursery extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }
