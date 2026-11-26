@@ -6,6 +6,7 @@ use App\Models\Classroom;
 use App\Models\Nursery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Teacher extends Model
 {
@@ -35,5 +36,10 @@ class Teacher extends Model
     public function classroom(): BelongsTo
     {
         return $this->belongsTo(Classroom::class);
+    }
+
+    public function certificates(): HasMany
+    {
+        return $this->hasMany(TeacherCertificate::class);
     }
 }
