@@ -59,5 +59,9 @@ class Booking extends Model
         return $this->hasMany(Booking::class, 'renewed_from_id');
     }
 
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class);
+    }
 
 }
