@@ -39,4 +39,9 @@ class Classroom extends Model
     {
         return $this->hasMany(Attendance::class);
     }
+
+    public function dailyReports(): HasMany
+    {
+        return $this->hasMany(ClassDailyReport::class);
+    }
 }

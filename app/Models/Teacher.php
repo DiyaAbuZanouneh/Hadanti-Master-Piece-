@@ -42,4 +42,9 @@ class Teacher extends Model
     {
         return $this->hasMany(TeacherCertificate::class);
     }
+
+    public function dailyReports(): HasMany
+    {
+        return $this->hasMany(ClassDailyReport::class);
+    }
 }
