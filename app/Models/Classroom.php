@@ -29,9 +29,14 @@ class Classroom extends Model
     {
         return $this->hasOne(Teacher::class);
     }
-    
+
     public function bookings(): HasMany
-{
-    return $this->hasMany(Booking::class);
-}
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }

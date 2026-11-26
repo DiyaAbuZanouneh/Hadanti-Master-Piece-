@@ -28,4 +28,9 @@ class Child extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }
