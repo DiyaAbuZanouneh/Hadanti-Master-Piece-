@@ -6,6 +6,7 @@ use App\Models\AgeGroup;
 use App\Models\Nursery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Classroom extends Model
@@ -28,4 +29,9 @@ class Classroom extends Model
     {
         return $this->hasOne(Teacher::class);
     }
+    
+    public function bookings(): HasMany
+{
+    return $this->hasMany(Booking::class);
+}
 }

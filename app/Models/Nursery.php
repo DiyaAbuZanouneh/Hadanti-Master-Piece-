@@ -49,4 +49,8 @@ class Nursery extends Model
     {
         return $this->hasMany(Teacher::class);
     }
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
