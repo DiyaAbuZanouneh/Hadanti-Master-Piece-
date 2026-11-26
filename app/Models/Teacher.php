@@ -52,4 +52,9 @@ class Teacher extends Model
     {
         return $this->hasMany(ChildReportException::class);
     }
+
+    public function aiRequests(): HasMany
+    {
+        return $this->hasMany(AiRequest::class);
+    }
 }

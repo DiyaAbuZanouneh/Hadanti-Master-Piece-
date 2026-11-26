@@ -44,4 +44,9 @@ class Classroom extends Model
     {
         return $this->hasMany(ClassDailyReport::class);
     }
+
+    public function aiRequests(): HasMany
+    {
+        return $this->hasMany(AiRequest::class);
+    }
 }
