@@ -21,6 +21,9 @@
                 data-i18n="nav.users">المستخدمون</a>
             <a href="/admin/tickets" class="sidebar__link {{ request()->is('admin/tickets*') ? 'is-active' : '' }}"
                 data-i18n="nav.tickets">التذاكر</a>
+            <a href="/admin/age-groups"
+                class="sidebar__link {{ request()->is('admin/age-groups*') ? 'is-active' : '' }}"
+                data-i18n="nav.ageGroups">الفئات العمرية</a>
         </nav>
     </aside>
 
