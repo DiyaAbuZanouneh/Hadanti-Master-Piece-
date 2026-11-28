@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Admin\NurseryController as AdminNurseryController;
 use App\Http\Controllers\Api\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Api\Admin\TicketController as AdminTicketController;
+use App\Http\Controllers\Api\Admin\StatsController as AdminStatsController;
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
@@ -27,5 +28,6 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::get('/tickets', [AdminTicketController::class, 'index']);
     Route::get('/tickets/{ticket}', [AdminTicketController::class, 'show']);
     Route::patch('/tickets/{ticket}', [AdminTicketController::class, 'update']);
+    Route::get('/stats', [AdminStatsController::class, 'index']);
 
 });
