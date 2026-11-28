@@ -36,10 +36,14 @@
     </div>
 
     <script src="{{ asset('js/admin/i18n.js') }}"></script>
+    <script src="{{ asset('js/admin/api.js') }}"></script>
     <script>
     const body = document.body;
     document.getElementById('menuBtn').addEventListener('click', () => body.classList.toggle('menu-open'));
     document.getElementById('overlay').addEventListener('click', () => body.classList.remove('menu-open'));
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+    requireAdmin();
     </script>
     @stack('scripts')
 </body>
