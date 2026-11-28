@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Api\Admin\TicketController as AdminTicketController;
 use App\Http\Controllers\Api\Admin\StatsController as AdminStatsController;
 use App\Http\Controllers\Api\Admin\AgeGroupController as AdminAgeGroupController;
+use App\Http\Controllers\Api\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Api\Admin\PaymentController as AdminPaymentController;
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
@@ -34,5 +36,8 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::post('/age-groups', [AdminAgeGroupController::class, 'store']);
     Route::put('/age-groups/{ageGroup}', [AdminAgeGroupController::class, 'update']);
     Route::delete('/age-groups/{ageGroup}', [AdminAgeGroupController::class, 'destroy']);
+    Route::get('/bookings', [AdminBookingController::class, 'index']);
+    Route::get('/bookings/{booking}', [AdminBookingController::class, 'show']);
+    Route::get('/payments', [AdminPaymentController::class, 'index']);
 
 });

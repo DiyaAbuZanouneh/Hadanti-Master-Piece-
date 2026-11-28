@@ -24,6 +24,10 @@
             <a href="/admin/age-groups"
                 class="sidebar__link {{ request()->is('admin/age-groups*') ? 'is-active' : '' }}"
                 data-i18n="nav.ageGroups">الفئات العمرية</a>
+            <a href="/admin/bookings" class="sidebar__link {{ request()->is('admin/bookings*') ? 'is-active' : '' }}"
+                data-i18n="nav.bookings">الحجوزات</a>
+            <a href="/admin/payments" class="sidebar__link {{ request()->is('admin/payments*') ? 'is-active' : '' }}"
+                data-i18n="nav.payments">المدفوعات</a>
         </nav>
     </aside>
 
