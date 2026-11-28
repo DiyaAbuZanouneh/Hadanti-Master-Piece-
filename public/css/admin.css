@@ -262,6 +262,9 @@ body {
 .badge--suspended { background: #e5e7eb; color: #374151; }
 .badge--active { background: #d1fae5; color: #065f46; }
 .badge--inactive { background: #e5e7eb; color: #374151; }
+.badge--open { background: #fef3c7; color: #92400e; }
+.badge--in_progress { background: #dbeafe; color: #1e40af; }
+.badge--closed { background: #d1fae5; color: #065f46; }
 
 .pagination {
     display: flex;
@@ -326,6 +329,7 @@ body {
 
 .details dd {
     word-break: break-word;
+    white-space: pre-wrap;
 }
 
 .modal__actions {

@@ -19,6 +19,8 @@
                 data-i18n="nav.nurseries">الحضانات</a>
             <a href="/admin/users" class="sidebar__link {{ request()->is('admin/users*') ? 'is-active' : '' }}"
                 data-i18n="nav.users">المستخدمون</a>
+            <a href="/admin/tickets" class="sidebar__link {{ request()->is('admin/tickets*') ? 'is-active' : '' }}"
+                data-i18n="nav.tickets">التذاكر</a>
         </nav>
     </aside>
 
