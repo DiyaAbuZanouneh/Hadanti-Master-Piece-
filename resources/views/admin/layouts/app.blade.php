@@ -28,6 +28,8 @@
                 data-i18n="nav.bookings">الحجوزات</a>
             <a href="/admin/payments" class="sidebar__link {{ request()->is('admin/payments*') ? 'is-active' : '' }}"
                 data-i18n="nav.payments">المدفوعات</a>
+            <a href="/admin/reviews" class="sidebar__link {{ request()->is('admin/reviews*') ? 'is-active' : '' }}"
+                data-i18n="nav.reviews">التقييمات</a>
         </nav>
     </aside>
 

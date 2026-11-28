@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Admin\StatsController as AdminStatsController;
 use App\Http\Controllers\Api\Admin\AgeGroupController as AdminAgeGroupController;
 use App\Http\Controllers\Api\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Api\Admin\PaymentController as AdminPaymentController;
+use App\Http\Controllers\Api\Admin\ReviewController as AdminReviewController;
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
@@ -39,5 +40,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::get('/bookings', [AdminBookingController::class, 'index']);
     Route::get('/bookings/{booking}', [AdminBookingController::class, 'show']);
     Route::get('/payments', [AdminPaymentController::class, 'index']);
+    Route::get('/reviews', [AdminReviewController::class, 'index']);
+    Route::patch('/reviews/{review}/visibility', [AdminReviewController::class, 'updateVisibility']);
 
 });

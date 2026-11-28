@@ -35,7 +35,14 @@
         <div class="stat__value" id="statCommission">-</div>
         <div class="stat__label" data-i18n="dashboard.cards.commission"></div>
     </a>
-
+    <a class="stat" href="/admin/reviews">
+        <div class="stat__value" id="statReviews">-</div>
+        <div class="stat__label" data-i18n="dashboard.cards.reviews"></div>
+    </a>
+    <a class="stat" href="/admin/reviews">
+        <div class="stat__value" id="statRating">-</div>
+        <div class="stat__label" data-i18n="dashboard.cards.rating"></div>
+    </a>
 </div>
 
 <div class="charts-grid">
@@ -67,6 +74,10 @@
     <div class="card">
         <h2 class="chart__title" data-i18n="dashboard.charts.revenuePerMonth"></h2>
         <div id="chartRevenue"></div>
+    </div>
+    <div class="card">
+        <h2 class="chart__title" data-i18n="dashboard.charts.reviewsByStars"></h2>
+        <div id="chartReviews"></div>
     </div>
 </div>
 @endsection
@@ -210,6 +221,8 @@ function render() {
     document.getElementById('statBookings').textContent = stats.totals.bookings;
     document.getElementById('statRevenue').textContent = formatMoney(stats.totals.revenue);
     document.getElementById('statCommission').textContent = formatMoney(stats.totals.commission);
+    document.getElementById('statReviews').textContent = stats.totals.reviews;
+    document.getElementById('statRating').textContent = stats.totals.average_rating.toFixed(1) + ' / 5';
 
     renderDonut(document.getElementById('chartUsersByRole'), stats.users_by_role, (k) => t('role.' + k));
     renderBars(document.getElementById('chartNurseries'), stats.nurseries_by_status, (k) => t('status.' + k));
@@ -218,6 +231,7 @@ function render() {
     renderBars(document.getElementById('chartBookingsStatus'), stats.bookings_by_status, (k) => t('status.' + k));
     renderDonut(document.getElementById('chartBookingsType'), stats.bookings_by_type, (k) => t('bookings.type.' + k));
     renderColumns(document.getElementById('chartRevenue'), stats.revenue_per_month, 'total', formatMoney);
+    renderBars(document.getElementById('chartReviews'), stats.reviews_by_stars, (k) => '★ ' + k);
 }
 
 async function loadStats() {

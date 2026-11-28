@@ -8,6 +8,7 @@ use App\Models\Nursery;
 use App\Models\Payment;
 use App\Models\Ticket;
 use App\Models\User;
+use App\Models\Review;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,8 @@ class StatsController extends Controller
                 'bookings'          => Booking::count(),
                 'revenue'           => (float) Payment::where('type', 'payment')->where('status', 'paid')->sum('amount'),
                 'commission'        => (float) Booking::whereNotNull('paid_at')->sum(DB::raw('price * commission_rate / 100')),
+                'reviews'           => Review::count(),
+                'average_rating'    => round((float) Review::where('is_hidden', false)->avg('stars'), 1),
             ],
             'users_by_role' => $this->groupCount(
                 User::class,
@@ -52,6 +55,7 @@ class StatsController extends Controller
             ),
             'users_per_month'   => $this->usersPerMonth(),
             'revenue_per_month' => $this->revenuePerMonth(),
+            'reviews_by_stars'  => $this->reviewsByStars(),
         ]);
     }
 
@@ -92,5 +96,16 @@ class StatsController extends Controller
                     ->sum('amount'),
             ];
         })->all();
+    }
+    private function reviewsByStars(): array
+    {
+        $counts = Review::where('is_hidden', false)
+            ->selectRaw('stars, COUNT(*) as total')
+            ->groupBy('stars')
+            ->pluck('total', 'stars');
+
+        return collect([1, 2, 3, 4, 5])
+            ->mapWithKeys(fn ($stars) => [$stars => (int) ($counts[$stars] ?? 0)])
+            ->all();
     }
 }

@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Review extends Model
 {
     protected $fillable = [
-        'booking_id', 'parent_id', 'nursery_id',
-        'stars', 'comment', 'reply', 'replied_at',
+    'booking_id', 'parent_id', 'nursery_id',
+    'stars', 'comment', 'reply', 'replied_at', 'is_hidden',
     ];
 
     protected function casts(): array
     {
         return [
             'replied_at' => 'datetime',
+            'is_hidden'  => 'boolean',
         ];
     }
 
