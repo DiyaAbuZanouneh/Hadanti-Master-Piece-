@@ -32,6 +32,11 @@ async function apiFetch(path, options = {}) {
     const res = await fetch(API + path, { ...options, headers });
     const data = await res.json().catch(() => ({}));
 
+    if (res.status === 401 && path !== '/login') {
+        clearToken();
+        location.href = '/admin/login';
+    }
+
     return { ok: res.ok, status: res.status, data };
 }
 
