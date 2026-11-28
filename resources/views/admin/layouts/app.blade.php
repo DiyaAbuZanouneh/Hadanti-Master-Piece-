@@ -17,6 +17,8 @@
                 data-i18n="nav.home">الرئيسية</a>
             <a href="/admin/nurseries" class="sidebar__link {{ request()->is('admin/nurseries*') ? 'is-active' : '' }}"
                 data-i18n="nav.nurseries">الحضانات</a>
+            <a href="/admin/users" class="sidebar__link {{ request()->is('admin/users*') ? 'is-active' : '' }}"
+                data-i18n="nav.users">المستخدمون</a>
         </nav>
     </aside>
 
